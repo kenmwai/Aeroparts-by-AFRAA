@@ -96,6 +96,7 @@
   },
   "overrides": {
     "seroval": "^1.6.2",
-    "seroval-plugins": "^1.6.2"
+    "seroval-plugins": "^1.6.2",
+    "@tanstack/router-core": "1.171.17"
   }
 }
