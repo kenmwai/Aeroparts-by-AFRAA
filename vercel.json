@@ -5,6 +5,14 @@
       "handle": "filesystem"
     },
     {
+      "src": "^/assets/(.*)$",
+      "dest": "/dist/client/assets/$1"
+    },
+    {
+      "src": "^/robots.txt$",
+      "dest": "/dist/client/robots.txt"
+    },
+    {
       "src": "^/(.*)$",
       "dest": "/api/index.mjs"
     }
