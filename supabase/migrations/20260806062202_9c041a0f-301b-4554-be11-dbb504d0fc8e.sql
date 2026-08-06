@@ -1,0 +1,1 @@
+REVOKE EXECUTE ON FUNCTION public.seller_listing_active(uuid) FROM anon;

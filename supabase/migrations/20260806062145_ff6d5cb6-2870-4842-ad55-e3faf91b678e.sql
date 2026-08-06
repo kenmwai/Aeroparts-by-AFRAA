@@ -1,0 +1,1 @@
+REVOKE EXECUTE ON FUNCTION public.submit_quote(uuid, numeric, text, integer) FROM anon;
