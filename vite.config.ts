@@ -14,13 +14,15 @@ export default defineConfig({
       "@tanstack/router-plugin"
     ]
   },
+  resolve: {
+    tsconfigPaths: true
+  },
   plugins: [
     tanstackRouter(),
     tanstackStart({
       server: { entry: "src/server.ts" },
     }),
     react(),
-    tsconfigPaths(),
     tailwindcss(),
   ],
 });
