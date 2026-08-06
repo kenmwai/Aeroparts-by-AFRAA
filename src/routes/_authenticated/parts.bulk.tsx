@@ -1,7 +1,7 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { toast } from "sonner";
-import * as XLSX from "xlsx";
+import Papa from "papaparse";
 import { Upload as UploadIcon, Download, ArrowLeft, AlertTriangle } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/use-auth";
@@ -114,10 +114,18 @@ function downloadTemplate() {
       description: "Serviceable, with trace",
     },
   ];
-  const ws = XLSX.utils.json_to_sheet(sample, { header: TEMPLATE_HEADERS });
-  const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, ws, "Parts");
-  XLSX.writeFile(wb, "aeroparts-bulk-template.xlsx");
+  const csv = [TEMPLATE_HEADERS.join(",")]
+    .concat(sample.map((row) => TEMPLATE_HEADERS.map((h) => `"${String((row as any)[h] ?? "").replace(/"/g, '""')}"`).join(",")))
+    .join("\n");
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "aeroparts-bulk-template.csv";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
 }
 
 function BulkUploadPage() {
@@ -132,12 +140,25 @@ function BulkUploadPage() {
     if (!file) return;
     setFileName(file.name);
     try {
-      const buf = await file.arrayBuffer();
-      const wb = XLSX.read(buf, { type: "array" });
-      const sheet = wb.Sheets[wb.SheetNames[0]];
-      const json = XLSX.utils.sheet_to_json<Record<string, unknown>>(sheet, { defval: "" });
-      const parsed = json.map((r, i) => parseRow(r, i + 2)); // header is row 1
-      setRows(parsed);
+      // Only CSV supported in this simplified flow
+      if (!file.name.toLowerCase().endsWith(".csv")) {
+        toast.error("Only CSV uploads are supported. Save your spreadsheet as CSV and try again.");
+        setRows([]);
+        return;
+      }
+      Papa.parse(file, {
+        header: true,
+        skipEmptyLines: true,
+        complete: (results) => {
+          const data = results.data as Record<string, unknown>[];
+          const parsed = data.map((r, i) => parseRow(r, i + 2));
+          setRows(parsed);
+        },
+        error: (err) => {
+          toast.error("Could not read CSV: " + err.message);
+          setRows([]);
+        },
+      });
     } catch (err) {
       toast.error("Could not read file: " + (err as Error).message);
       setRows([]);
