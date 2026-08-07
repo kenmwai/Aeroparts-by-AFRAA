@@ -66,25 +66,25 @@
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
 
-  /* Aviation Navy palette */
-  --background: oklch(0.985 0.005 85);            /* #f5f0e0 cream */
-  --foreground: oklch(0.18 0.04 260);             /* deep navy */
+  /* Aviation Navy palette — clean white page, cool-gray neutrals */
+  --background: oklch(1 0 0);                      /* white */
+  --foreground: oklch(0.22 0.05 262);             /* deep navy */
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.04 260);
+  --card-foreground: oklch(0.22 0.05 262);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.04 260);
-  --primary: oklch(0.22 0.07 260);                /* #0f1b3d navy */
-  --primary-foreground: oklch(0.985 0.005 85);
+  --popover-foreground: oklch(0.22 0.05 262);
+  --primary: oklch(0.22 0.07 262);                /* #0f1b3d navy */
+  --primary-foreground: oklch(0.98 0.005 250);
   --secondary: oklch(0.36 0.06 255);              /* #1e3a5f mid navy */
-  --secondary-foreground: oklch(0.985 0.005 85);
-  --muted: oklch(0.94 0.01 85);
-  --muted-foreground: oklch(0.45 0.03 260);
+  --secondary-foreground: oklch(0.98 0.005 250);
+  --muted: oklch(0.96 0.008 250);                 /* light cool gray */
+  --muted-foreground: oklch(0.52 0.03 258);
   --accent: oklch(0.78 0.13 85);                  /* #c9a84c gold */
-  --accent-foreground: oklch(0.18 0.04 260);
+  --accent-foreground: oklch(0.22 0.05 262);
   --destructive: oklch(0.55 0.22 25);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.88 0.01 85);
-  --input: oklch(0.92 0.01 85);
+  --border: oklch(0.9 0.008 250);
+  --input: oklch(0.9 0.008 250);
   --ring: oklch(0.78 0.13 85);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
