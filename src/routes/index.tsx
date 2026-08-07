@@ -38,7 +38,7 @@ function Index() {
           <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs uppercase tracking-wider text-accent">
             <Plane className="h-3 w-3" /> Aviation supply chain
           </div>
-          <h1 className="mt-6 max-w-3xl font-display text-5xl font-semibold leading-[1.05] sm:text-6xl">
+          <h1 className="mt-6 max-w-3xl font-display text-6xl font-semibold leading-[1.05] sm:text-7xl">
             The marketplace for <span className="text-accent">certified</span> aircraft parts.
           </h1>
           <p className="mt-6 max-w-xl text-lg text-primary-foreground/75">

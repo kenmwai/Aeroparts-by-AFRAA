@@ -31,3 +31,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# TanStack router generator temp and backups
+.tanstack/
+routeTree.branch.ts
+routeTree.head.ts
+routeTree.diff
+src/routeTree.gen.ts.bak
