@@ -9,7 +9,7 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-primary text-primary-foreground">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 px-4 sm:px-6">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-6 px-4 sm:px-6">
         <Link to="/" className="flex items-center gap-2 font-display text-lg font-semibold tracking-tight">
           <Plane className="h-5 w-5 text-accent" strokeWidth={2.2} />
           <span>AeroParts <span className="text-accent">by AFRAA</span></span>

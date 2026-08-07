@@ -41,7 +41,7 @@ function Index() {
           <h1 className="mt-6 max-w-3xl font-display text-6xl font-semibold leading-[1.05] sm:text-7xl">
             The marketplace for <span className="text-accent">certified</span> aircraft parts.
           </h1>
-          <p className="mt-6 max-w-xl text-lg text-primary-foreground/75">
+          <p className="mt-6 max-w-xl text-xl text-primary-foreground/75">
             List inventory with full traceability. Browse parts with images and 8130-3 / EASA Form 1 certificates. Request quotes in seconds.
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
